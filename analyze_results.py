@@ -26,6 +26,8 @@ for idx, (name, filename) in enumerate(zip(names, filenames)):
     ax = axes[idx]
     ax.scatter(points.x, model.x, label='x value')
     ax.scatter(points.y, model.y, label='y value')
+    ax.set_xticks([2, 4, 6, 8])
+    ax.set_yticks([2, 4, 6, 8])
     ax.set_xlabel('Actual Coordinate')
     if idx == 0:
         ax.set_ylabel('Predicted Coordinate')
@@ -51,6 +53,8 @@ for idx, (name, filename) in enumerate(zip(names, filenames)):
     ax = axes[idx]
     ax.scatter(points.x, points.y, label='Actual')
     ax.scatter(model.x, model.y, label='Predicted')
+    ax.set_xticks([2, 4, 6, 8])
+    ax.set_yticks([2, 4, 6, 8])
     for i in range(len(points.x)):
         ax.plot([points.x[i], model.x[i]], [points.y[i], model.y[i]], color='black', alpha=0.2)
     ax.set_title(f'{name}')
