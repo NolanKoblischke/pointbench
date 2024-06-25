@@ -4,7 +4,9 @@ This is a simple benchmark that tests if a model can visually determine the posi
 
 #### Benchmark Generation
 
-Decimal coordinates ($x,y$) where chosen randomly from 1.0 to 9.0. Here is an example plot where the point was (1.345, 4.379). When I looked at this plot, I measured (1.35, 4.4) which is off by 0.11 units (Euclidean distance). Humans should be able to measure the position within 0.2 units 100% of the time. Let's see if AI models can!
+Decimal coordinates ($x,y$) are chosen randomly from 1.0 to 9.0 and 100 plots are generated.
+
+Here is an example plot where the point was (1.345, 4.379). When I looked at this plot, I measured (1.35, 4.4) which is off by 0.11 units (Euclidean distance). Humans should be able to measure the position within 0.2 units 100% of the time. Let's see if AI models can!
 
 ![Example Plot](plots/61.png)
 
