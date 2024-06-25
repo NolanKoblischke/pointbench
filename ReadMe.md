@@ -13,7 +13,10 @@ Decimal coordinates ($x,y$) where chosen randomly from 1.0 to 9.0. Here is an ex
 I evaluated GPT-4o and Claude 3.5 Sonnet. The top two SOTA models for vision tasks. I prompted with:
 
 ```
-What is the position of this point? Output your answer in the format (x,y). E.g. (5.06,4.23). Be as precise as possible. Answer to 2 decimal places. These points are truly random so do not output whole numbers, try to use the decimals. Only output your answer in the format (x,y). Nothing else.
+What is the position of this point? Output your answer in the format (x,y). E.g. (5.06,4.23).
+Be as precise as possible. Answer to 2 decimal places. 
+These points are truly random so do not output whole numbers, try to use the decimals. 
+Only output your answer in the format (x,y). Nothing else.
 ```
 
 Note: I did a bit of prompt engineering to provide context and avoid errors associated with extracting the answer from the response. Different prompts will likely yield different results.
