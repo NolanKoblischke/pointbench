@@ -1,0 +1,15 @@
+mathtext.fontset: dejavuserif
+font.family: serif
+font.size: 20
+xtick.minor.visible: True
+ytick.minor.visible: True
+xtick.major.size: 7
+xtick.minor.size: 3.5
+ytick.major.size: 7
+ytick.minor.size: 3.5
+axes.linewidth: 1.5
+xtick.major.width: 1.5
+ytick.major.width: 1.5
+xtick.minor.width: 1.5
+ytick.minor.width: 1.5
+
