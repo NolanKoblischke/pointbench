@@ -38,8 +38,9 @@ Claude 3.5 Sonnet is much better than GPT-4o! GPT-4o seems to be biased for numb
 
 More ticks and gridlines can increase GPT-4o's accuracy, but real-world plots won't have these features. I am unsure if few-shot learning or prompting will help GPT-4o in this case. Claude 3.5 Sonnet clearly has better architecture/training data for this task.
 
-The fact that Claude 3.5 Sonnet performs significantly worse for predicting $x$ over $y$ is interesting and could provide us insight into how it tokenizes images. 
+The fact that Claude 3.5 Sonnet performs significantly worse for predicting $x$ over $y$ is interesting and could provide us insight into how it tokenized images are fed into the model. This effect is not seen in GPT-4o, which performs equally bad for both $x$ and $y$.
 
-I am not an expert on this, but here is some speculation. If it tokenizes in a raster-order, top-left to bottom-right like how you read, then the tokens containing the $y$-axis ticks/labels will be a row-length apart and the tokens containing the $x$-axis ticks/labels will all together in the same row. Perhaps having all the $x$-axis tokens together in the same row makes their positional encodings very similar, so the model struggles to differentiate between them with attention.
+
+I am not an expert on this, but here is some speculation. These differences between GPT-4o and Claude might suggest different architectures (early-fusion vs a grafted on image encoder?). If Claude 3.5 Sonnet tokenizes in a raster-order, top-left to bottom-right like how you read, then the tokens containing the $y$-axis ticks/labels will be a row-length apart and the tokens containing the $x$-axis ticks/labels will all together in the same row. Perhaps having all the $x$-axis tokens together in the same row makes their positional encodings very similar, so the model struggles to differentiate between them with attention.
 
 ![ErrorHistogram](analysis/error_histogram.png)
