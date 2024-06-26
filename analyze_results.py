@@ -71,13 +71,24 @@ plt.close()
 fig, axes = plt.subplots(nrows=1, ncols=len(names), figsize=(11, 5))
 fig.suptitle('Error Histogram Per Axis', y=0.87)
 
+errlower = np.inf
+errupper = -np.inf
 for idx, (name, filename) in enumerate(zip(names, filenames)):
     model = pd.read_csv(filename)
-
     xerr = model.x - points.x
     yerr = model.y - points.y
-    bins = np.linspace(min(xerr.min(), yerr.min()), max(xerr.max(), yerr.max()), 20)
+    minerr = min(xerr.min(), yerr.min())
+    maxerr = max(xerr.max(), yerr.max())
+    bins = np.linspace(minerr, maxerr, 20)
+    errlower = min(errlower, minerr)
+    errupper = max(errupper, maxerr)
+for idx, (name, filename) in enumerate(zip(names, filenames)):
+    model = pd.read_csv(filename)
+    xerr = model.x - points.x
+    yerr = model.y - points.y
+    bins = np.linspace(errlower, errupper, 20)
     ax = axes[idx]
+    ax.set_xlim(errlower, errupper)
     ax.hist(xerr, bins=bins, alpha=0.5, label='x error')
     ax.hist(yerr, bins=bins, alpha=0.5, label='y error')    
     ax.axvline(0, color='black', lw=1, ls='--')
@@ -85,6 +96,7 @@ for idx, (name, filename) in enumerate(zip(names, filenames)):
     ax.set_xlabel('Predicted - Actual')
     if idx == 0:
         ax.set_ylabel('Frequency')
+    print('\n', name)
     print(f'Mean absolute x error: {np.mean(np.abs(model.x - points.x)):.2f}')
     print(f'Mean absolute y error: {np.mean(np.abs(model.y - points.y)):.2f}')
 # Place legends outside the far rightmost plot
