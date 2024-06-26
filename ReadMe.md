@@ -9,6 +9,7 @@ Decimal coordinates ($x,y$) are chosen randomly from 1.0 to 9.0 and 100 plots ar
 Here is an example plot with point (1.345, 4.379). Looking at this plot, I measured (1.35, 4.4) which is off by 0.022 units in Euclidean distance. Humans should be able to measure the point position within 0.2 units (10x worse) 100% of the time. Let's see how AI models do!
 
 ![Example Plot](plots/61.png)
+![Example Plot](analysis/point_cover_plot.png)
 
 #### AI Evaluation
 
